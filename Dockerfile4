@@ -3,10 +3,17 @@ FROM node:8.11-slim
 
 WORKDIR app
 
-# command executable and version
+
 COPY . .
-RUN ls -ll &&\
-    npm install
+
+# 不要這樣做
+RUN ls -ll 
+RUN npm install
+
+# 正確做法
+# RUN ls -ll &&\
+#     npm install
+
 EXPOSE 3003
 
 CMD [ "index.js" ]
