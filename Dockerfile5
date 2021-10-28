@@ -1,0 +1,14 @@
+# from base image node
+FROM node:8.11-slim
+LABEL maintainer="luk" email="lalalalaluk"
+
+WORKDIR app
+
+# command executable and version
+COPY . .
+RUN ls -ll &&\
+    npm install
+EXPOSE 3003
+
+CMD [ "index.js" ]
+ENTRYPOINT ["node"]
